@@ -1,0 +1,56 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <div class="main_body">
+      <%- include("./partials/nav.ejs") %>
+
+      <div class="details content profile">
+        <h2><%= detail.name %></h2>
+        <div class="email">
+          <p><b>Email: </b><%= detail.email %></p>
+        </div>
+        <div class="password" hidden>
+          <p><%= detail.password %></p>
+        </div>
+        <div class="phone">
+          <p><b>PhoneNo: </b><%= detail.phone %></p>
+        </div>
+
+        <div class="">
+          <a class="del delete" href="/signin" title="SignOut">
+            <i style="font-size: 28px" class="fas icon3">&#xf2f5;</i></a
+          >
+        </div>
+
+        <div class="">
+          <a class="del delete" data-doc="<%= detail._id %>" title="Delete"
+            ><i style="font-size: 24px" class="fas icon1">&#xf2ed;</i></a
+          >
+        </div>
+        <div class="">
+          <a
+            class="update"
+            href="/profile_upd_form/<%=detail._id %>"
+            title="Edit"
+            ><i style="font-size: 24px" class="fas icon2">&#xf304;</i></a
+          >
+        </div>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+    </div>
+    <script>
+      const trashcan = document.querySelector("a.del");
+      trashcan.addEventListener("click", (e) => {
+        const endpoint = `/profile/${trashcan.dataset.doc}`;
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

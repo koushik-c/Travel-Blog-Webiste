@@ -1,0 +1,279 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
+  <title>Travelo | <%= title %></title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("../../Images/travl.jpg");
+      background-size: 100% 100%;
+      background-repeat: repeat;
+      background-attachment: fixed;
+    }
+    .main_body {
+      min-height: calc(100vh - 40px);
+      margin: 0;
+      max-width: 1200px;
+      margin: 0px auto;
+      padding: 20px;
+      font-family: "Noto Serif", serif;
+      max-width: 1200px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 0px 5px rgb(82, 78, 78);
+    }
+    p,
+    h1,
+    h2,
+    h3,
+    a,
+    ul {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      color: #222;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 2px;
+    }
+
+    /* nav & footer styles */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+      text-transform: uppercase;
+    }
+    nav ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    nav li {
+      list-style-type: none;
+      margin-left: 20px;
+    }
+    nav li a:hover {
+      transform: scale(1.04);
+      color: #222;
+    }
+    nav li:hover {
+      transform: scale(1.04);
+    }
+    nav h1 {
+      font-size: 3em;
+    }
+    nav p,
+    nav a {
+      color: #777;
+      font-weight: 300;
+    }
+    footer {
+      color: #777;
+      text-align: center;
+      margin: 80px auto 20px;
+    }
+    h2 {
+      margin-bottom: 40px;
+    }
+    h3 {
+      text-transform: capitalize;
+      margin-bottom: 8px;
+      color: rgb(252, 146, 146);
+    }
+    .content {
+      margin-left: 20px;
+    }
+
+    .filter_div {
+      position: relative;
+      float: right;
+    }
+
+    #filter {
+      width: 100px;
+      font-size: 16px;
+    }
+
+    #filter option {
+      background-color: rgb(255, 222, 222);
+    }
+
+    #filter:focus {
+      outline: none;
+    }
+
+    #btn {
+      box-shadow: 0px 0px 2px black;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      cursor: pointer;
+      background-color: rgb(255, 250, 232);
+      padding: 3px 5px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about div {
+      box-shadow: 0px 2px 5px rgb(74, 74, 74);
+      margin: 10px 0;
+      padding: 5px 30px;
+      border-left: 6px solid rgb(3, 99, 120);
+      margin-right: 15px;
+    }
+    .about div:hover h3 {
+      color: crimson;
+    }
+
+    /* index styles */
+    .blogs a {
+      box-shadow: 0px 2px 5px rgb(74, 74, 74);
+      display: grid;
+      grid-template-columns: 20% 80%;
+      margin: 40px 0;
+      font-size: 18px;
+      border-right: 6px solid rgb(3, 99, 120);
+    }
+
+    .blogs a:hover {
+      transform: scale(1.01);
+    }
+
+    .blogs a:hover h3 {
+      color: crimson;
+    }
+
+    .srtimg {
+      width: 250px;
+      height: 150px;
+    }
+
+    .blogs .dets {
+      padding: 5px 0;
+      padding-left: 30px;
+    }
+
+    .srtimg {
+      background-color: #222;
+    }
+
+    .blogs p {
+      margin: 2px 0;
+    }
+
+    /* details styles */
+    .details {
+      position: relative;
+      font-size: 26px;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .details .desc {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .image {
+      width: 1000px;
+      height: 500px;
+      background-color: #222;
+      margin: 30px auto;
+    }
+
+    #img {
+      width: inherit;
+      height: inherit;
+    }
+
+    .details .pop {
+      margin-top: 30px;
+    }
+    .details .loc {
+      margin-top: 5px;
+      text-align: end;
+    }
+    .details .post {
+      margin-top: 30px;
+      text-align: end;
+    }
+    .icon1,
+    .icon2,
+    .icon3 {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .icon1:hover,
+    .icon2:hover,
+    .icon3:hover {
+      color: rgb(41, 36, 36);
+    }
+
+    .icon1 {
+      color: red;
+    }
+
+    .icon2 {
+      color: blue;
+      margin-right: 42px;
+    }
+    .icon3 {
+      color: rgb(0, 49, 57);
+      margin-right: 82px;
+    }
+
+    /* create styles */
+    .create-blog form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .create-blog input,
+    .create-blog textarea {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+    }
+    .create-blog label {
+      display: block;
+      margin-top: 24px;
+    }
+    textarea {
+      height: 120px;
+    }
+    .create-blog button {
+      margin-top: 20px;
+      background: crimson;
+      color: white;
+      padding: 6px;
+      border: 0;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .profile p {
+      padding: 3px 0;
+    }
+  </style>
+</head>

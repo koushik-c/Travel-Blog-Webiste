@@ -1,0 +1,60 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <div class="main_body">
+      <%- include("./partials/nav.ejs") %>
+
+      <div class="filter_div">
+        <label for="filter"><b>Location:</b></label>
+        <select name="locs" id="filter">
+          <option value="all">All Blogs</option>
+          <% if (locs.length > 0) { locs.forEach((loc) => { %>
+
+          <option value="<%= loc %>"><%= loc %></option>
+
+          <% }) }%>
+        </select>
+        <button id="btn">
+          <i style="font-size: 15px" class="fa">&#xf0b0;</i>
+        </button>
+      </div>
+
+      <div class="blogs content">
+        <h2>Blogs</h2>
+
+        <% if (blogs.length > 0) { blogs.forEach(blog => { %>
+
+        <a class="single" href="/blogs/<%= blog._id %>">
+          <div class="srtimg">
+            <img src="../Images/<%= blog.image %>" alt="image" id="img" />
+          </div>
+          <div class="dets">
+            <h3 class="title"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.description %></p>
+            <p class="location"><%= blog.location %></p>
+            <p class="post"><b>Posted on </b> <%= blog.createdAt %></p>
+          </div>
+        </a>
+
+        <% }) } else { %>
+        <p>There are no blogs to display...</p>
+        <% } %>
+        <div class="comment">
+
+        </div>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+    </div>
+  </body>
+  <script>
+    const trashcan = document.getElementById("filter");
+    const button = document.getElementById("btn");
+    button.addEventListener("click", (e) => {
+      const endpoint = `/blog/${
+        trashcan.options[trashcan.selectedIndex].value
+      }`;
+      location.replace(endpoint);
+    });
+  </script>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <div class="main_body">
+      <%- include("./partials/nav.ejs") %>
+
+      <div class="details content">
+        <h2><%= blog.title %></h2>
+        <div class="desc">
+          <blockquote><i>" <%= blog.description %>"</i></blockquote>
+        </div>
+        <div class="image">
+          <img src="../Images/<%= blog.image %>" alt="image" id="img" />
+        </div>
+        <div class="body">
+          <p>&emsp;&emsp;<%= blog.body %></p>
+        </div>
+        <div class="pop">
+          <p><b>What's popular</b></p>
+          <p><%= blog.popular %></p>
+        </div>
+        <div class="post">
+          <p><b>Posted on </b><%= blog.createdAt %></p>
+        </div>
+        <div class="loc">
+          <p><b>Location:</b> <%= blog.location %></p>
+        </div>
+        <% if(uid === blog.uid){ %>
+        <div class="">
+          <a class="del delete" data-doc="<%= blog._id %>" title="Delete"
+            ><i style="font-size: 24px" class="fas icon1">&#xf2ed;</i></a
+          >
+        </div>
+        <div class="">
+          <a class="update" href="/blogs/update/<%=blog._id %>" title="Edit"
+            ><i style="font-size: 24px" class="fas icon2">&#xf304;</i></a
+          >
+        </div>
+        <% } %>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+    </div>
+    <script>
+      const trashcan = document.querySelector("a.del");
+      trashcan.addEventListener("click", (e) => {
+        const endpoint = `/blogs/${trashcan.dataset.doc}`;
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

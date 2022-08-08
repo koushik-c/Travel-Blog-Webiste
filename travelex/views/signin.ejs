@@ -1,0 +1,28 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <div class="main_body">
+      <nav>
+        <div class="site-title">
+          <a href="/"><h1>TravelEx</h1></a>
+          <p>A Travel Blog Site</p>
+        </div>
+        <ul>
+          <li><a href="/signup">Sign Up</a></li>
+        </ul>
+      </nav>
+      <div class="create-blog content">
+        <form action="/signin/checkout" method="POST">
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="email" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+          <button>Submit</button>
+        </form>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+    </div>
+  </body>
+</html>

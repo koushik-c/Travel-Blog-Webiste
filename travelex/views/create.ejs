@@ -1,0 +1,32 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <div class="main_body">
+      <%- include("./partials/nav.ejs") %>
+
+      <div class="create-blog content">
+        <form action="/blogs" method="POST" enctype="multipart/form-data">
+          <label for="title">Blog Title:</label>
+          <input type="text" id="title" name="title" required />
+          <label for="description">Blog Description:</label>
+          <input type="text" id="description" name="description" required />
+
+          <label for="image">Blog Image:</label>
+          <input type="file" id="image" name="image" required />
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required />
+
+          <label for="popular">What's Popular:</label>
+          <input type="text" id="popular" name="popular" required />
+          <label for="body">Content:</label>
+          <textarea id="body" name="body" required></textarea>
+          <button>Submit</button>
+        </form>
+      </div>
+
+      <%- include("./partials/footer.ejs") %>
+    </div>
+  </body>
+</html>
